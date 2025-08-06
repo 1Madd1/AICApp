@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: 'aicapp'
+  datasource:
+    username: postgres
+    password: 12345678
+    url: jdbc:postgresql://localhost:5434/postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+  properties:
+    hibernate:
+      default-schema: "public"
+  hibernate:
+    generate-ddl: true
+  flyway:
+    enabled: true

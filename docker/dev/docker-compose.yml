@@ -1,0 +1,28 @@
+services:
+
+  postgres:
+    container_name: aicappdb
+    image: postgres:15.1
+    environment:
+      POSTGRES_DB: aicapp
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5434"
+    networks:
+      - aicapp-network
+
+  pgadmin:
+    container_name: pgadmin_aicapp
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: somepass
+    networks:
+      - aicapp-network
+    ports:
+      - "5001:81"
+
+networks:
+  aicapp-network:
+    driver: bridge 
