@@ -38,6 +38,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User updateUser(UserDto userDto) {
+        return userRepository.save(User.builder()
+                .id(userDto.getId())
+                .email(userDto.getEmail())
+                .firstName(userDto.getFirstName())
+                .lastName(userDto.getLastName())
+                .username(userDto.getUsername())
+                .password(userDto.getPassword())
+                .userCreationDate(userDto.getUserCreationDate())
+                .build());
+    }
+
+    @Override
     public User findUserById(UUID userId) {
         Optional<User> user = userRepository.findById(userId);
         if (user.isEmpty()) {

@@ -46,13 +46,13 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(userDto), HttpStatus.CREATED);
     }
 
-//    @Operation(summary = "A PUT request that returns ResponseEntity<User> after updating existing User via given UserDto as a request body.")
-//    @PutMapping
-//    public ResponseEntity<User> updateUser(@Parameter(description = "a UserDto with all necessary information and with an id of an existing User") @RequestBody UserDto userDto) {
-//        System.out.println("UserController.updateUser called - " + userDto);
-//
-//        return new ResponseEntity<>(userService.updateUser(userDto), HttpStatus.OK);
-//    }
+    @Operation(summary = "A PUT request that returns ResponseEntity<User> after updating existing User via given UserDto as a request body.")
+    @PutMapping
+    public ResponseEntity<User> updateUser(@Parameter(description = "a UserDto with all necessary information and with an id of an existing User") @RequestBody UserDto userDto) {
+        System.out.println("UserController.updateUser called - " + userDto);
+
+        return new ResponseEntity<>(userService.updateUser(userDto), HttpStatus.OK);
+    }
 //
 //    @Operation(summary = "A DELETE request that removes a User via given id of an existing User and returns OK if delete was successful, error code 409 if not.")
 //    @DeleteMapping
